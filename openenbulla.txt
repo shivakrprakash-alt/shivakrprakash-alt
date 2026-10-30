@@ -1,0 +1,5 @@
+sudo docker pull opennebula/opennebula:latest
+
+sudo docker run -d --name opennebula -v opennebula_data:/var/lib/one -p 2616:2616 -p 2633:2633 opennebula/opennebula:latest
+
+sudo docker ps

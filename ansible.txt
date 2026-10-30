@@ -1,0 +1,46 @@
+Sweaty ❤️ Let's do the proper Ansible Role using ansible-galaxy init, with tasks/main.yml, as your examiner requires.
+Step 1: Create the role
+mkdir ansible
+cd ansible
+ansible-galaxy init prerequisites
+Step 2: Enter the role directory
+cd prerequisites
+nano tasks/main.yml
+Replace the contents with:
+
+---
+- name: Print prerequisites message
+  ansible.builtin.debug:
+    msg: "Role Done"
+Save: Ctrl + O → Enter → Ctrl + X.
+Step 3: Create the inventory
+Go back one directory:
+cd ..
+nano inventory
+Enter:
+[web]
+localhost ansible_connection=local
+Save and exit.
+Step 4: Create the playbook
+nano main.yml
+Enter:
+
+---
+- name: Run Ansible Role
+  hosts: web
+  roles:
+    - prerequisites
+Save and exit.
+Step 5: Check syntax
+ansible-playbook -i inventory --syntax-check main.yml
+Expected:
+playbook: main.yml
+Step 6: Run the role
+ansible-playbook -i inventory main.yml
+Expected output:
+TASK [prerequisites : Print prerequisites message]
+ok: [localhost] => {
+    "msg": "Role Done"
+}
+Result: The Ansible role was created using ansible-galaxy init and executed successfully through tasks/main.yml.
+

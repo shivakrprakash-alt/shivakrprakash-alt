@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install openssh-server -y
+sudo systemctl enable --now ssh
+
+sudo systemctl status ssh
+
+scp cloud.txt user@192.168.56.11:/home/user/

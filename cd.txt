@@ -1,0 +1,22 @@
+Perfect, sweaty 😎! Your Docker Hub username is shiva20062006. Use these exact commands.
+Step 1 — Build your Docker image
+cd ~/hello-cloud
+sudo docker build -t shiva20062006/hello-cloud:latest .
+Step 2 — Login and upload
+sudo docker login
+sudo docker push shiva20062006/hello-cloud:latest
+Step 3 — Deploy on Render Free
+1.	Open Render Dashboard.
+2.	Click New → Web Service → Existing Image.
+3.	Enter this image:
+docker.io/shiva20062006/hello-cloud:latest
+4.	Select Free and set the port to 80.
+5.	Click Deploy.
+Step 4 — Verify
+Open the public URL Render provides. You should see:
+Hello Docker Deployed Successfully!
+Docker image: shiva20062006/hello-cloud:latest
+Important: This deploys the website, but Jenkins automation is a separate step. Once the website works, I can give you a very small Jenkins CD pipeline to automate deployment.
+
+
+https://hello-cloud-latest.onrender.com

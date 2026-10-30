@@ -1,0 +1,41 @@
+That confirms the problem: your src folder has no Java files, so Gradle has nothing to compile. Let's create the missing file now.
+Step 1: Create the Java file
+Copy and run:
+mkdir -p src/main/java
+nano src/main/java/App.java
+Step 2: Paste this program
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Gradle!");
+        System.out.println("Simple Java Application");
+    }
+}
+Save the file:
+1.	Press Ctrl + O.
+2.	Press Enter.
+3.	Press Ctrl + X.
+Step 3: Configure Gradle
+Run:
+nano build.gradle
+Replace everything with:
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'App'
+Save with Ctrl + O, Enter, and Ctrl + X.
+Step 4: Build and run
+Execute these commands one by one:
+gradle clean
+gradle build
+gradle run
+Expected output:
+Welcome to Gradle!
+Simple Java Application
+
+BUILD SUCCESSFUL
+Step 5: Verify the Java file exists
+find src -type f
+Expected:
+src/main/java/App.java
+Important: Run all commands from ~/SimpleApp. Your existing project can be fixed without running gradle init again.
+
