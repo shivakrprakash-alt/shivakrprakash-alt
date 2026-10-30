@@ -1,0 +1,41 @@
+Shut down Ubuntu VM.
+
+
+
+Open VirtualBox.
+
+
+
+Select your Ubuntu VM.
+
+
+
+Click Settings → Shared Folders.
+
+
+
+Click the folder + icon.
+
+
+
+Select your Windows Transfer folder.
+
+
+
+Enable:
+- Auto-mount
+- Make Permanent
+
+sudo apt update
+sudo apt install virtualbox-guest-utils -y
+
+ls /media
+Click OK.
+
+cd /media/sf_Transfer
+ls
+
+mkdir -p ~/transfer
+cp hello.txt ~/transfer/
+
+ls ~/transfer
